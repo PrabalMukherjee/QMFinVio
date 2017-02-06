@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QMFinVioData.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FinVioConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mongodb://localhost</Value>
+    </Setting>
+    <Setting Name="FinVioDBName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">consumer</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

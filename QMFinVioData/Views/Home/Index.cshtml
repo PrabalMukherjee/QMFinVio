@@ -1,0 +1,30 @@
+﻿<div class="container" ng-controller="uiSearchController">
+	<h2>Search for violations</h2>
+	<div class="row">
+		<div class="col-md-4">
+			<p></p>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Company</span>
+				<input type="text" class="form-control" placeholder="enter company" aria-describedby="basic-addon1" ng-model="filter.Company" />
+			</div>
+			<p></p>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Product</span>
+				<input type="text" class="form-control" placeholder="enter product" aria-describedby="basic-addon1" ng-model="filter.Product" />
+			</div>
+			<p></p>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Sub Product</span>
+				<input type="text" class="form-control" placeholder="enter sub product" aria-describedby="basic-addon1" ng-model="filter.SubProduct" />
+			</div>
+			<p></p>
+			<button type="button" class="btn btn-default" ng-click="search(filter)">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+			</button>
+		</div>
+		<div class="col-md-8">
+			<p></p>
+			<div id="grid1" ui-grid="gridViolations" class="grid"></div>
+		</div>
+	</div>
+</div>
