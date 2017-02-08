@@ -26,12 +26,15 @@ namespace QMFinVioData
 					  "~/bower_components/angular-ui-grid/ui-grid.css"));
 
 			bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-					"~/Scripts/angular.js",
-					"~/Scripts/angular-touch.js",
-					"~/Scripts/angular-animate.js",
-					 "~/bower_components/angular-ui-grid/ui-grid.js",
-					"~/UI/controllers/uiSearchController.js",
-					"~/UI/mainApp.js"));
+					 "~/Scripts/angular.js",
+					 "~/Scripts/angular-touch.js",
+					 "~/Scripts/angular-animate.js",
+                     "~/Scripts/angular-route.js",
+                     "~/bower_components/angular-ui-grid/ui-grid.js",
+                     "~/UI/mainApp.js",
+                     "~/UI/services/searchComplains.js",
+                     "~/UI/controllers/uiSearchController.js"
+                    ));
 		}
 	}
 }

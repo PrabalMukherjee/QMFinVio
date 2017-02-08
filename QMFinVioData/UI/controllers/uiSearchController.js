@@ -1,39 +1,35 @@
-﻿var uiSearchController = function (scope, http, uiGridConstants) {
-	scope.message = "Hello from controller";
+﻿(function () {
+    var uiSearchController = function (scope, log ,uiGridConstants, searchfinvol) {
 
-	scope.filter = {
-		Company: '',
-		Product: '',
-		SubProduct: ''
-	};
+        scope.filter = searchfinvol.filterStub;
 
-	scope.gridViolations = {
-		enableFiltering: true,
-		flatEntityAccess: true,
-		showGridFooter: true,
-		fastWatch: true
-	};
+        scope.gridViolations = {
+            enableFiltering: true,
+            flatEntityAccess: true,
+            showGridFooter: true,
+            fastWatch: true
+        };
 
-	scope.gridViolations.columnDefs = [
-		{ name: 'Company' },
-		{ name: 'Product' },
-		{ name: 'SubProduct' },
-		{ name: 'CompanyResponse' },
-		{ name: 'DateReceived' },
-		{ name: 'Narrative' }
-	];
+        scope.gridViolations.columnDefs = searchfinvol.resGridColDefs;
 
-	scope.search = function (filter) {
+        scope.search = function (filter) {
 
-		var successCallback = function (response) {
-			scope.gridViolations.data = response.data;
-		};
+            var successCallback = function (response) {
+                log.info("Search completed.");
+                scope.gridViolations.data = response;
+            };
 
-		var errorCallback = function (error) {
+            var errorCallback = function (error) {
+                log.error(error);
+            };
+            log.info("Searching for ");
+            log.info(filter);
 
-		};
+            searchfinvol.filterComplains(filter).then(successCallback, errorCallback);
+        };
 
-		http.post('/api/Search/GetVio', filter).then(successCallback, errorCallback);
-	};
+    };
 
-};
+    var app = angular.module('finvol');
+    app.controller("uiSearchController", ["$scope","$log" ,"uiGridConstants","searchfinvol", uiSearchController]);
+}());
