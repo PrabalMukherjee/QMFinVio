@@ -22,5 +22,16 @@ namespace FinVolTest
 
 			Assert.AreEqual(result.Count, 1);
 		}
-	}
+
+        [TestMethod]
+       public async Task TestGetCompanies()
+        {
+            var srchctrl = new SearchController();
+            var result = await srchctrl.Companies().ConfigureAwait(false);
+
+            
+            Assert.IsNotNull(result);
+
+        }
+    }
 }

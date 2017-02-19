@@ -23,7 +23,8 @@ namespace QMFinVioData
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css",
-					  "~/bower_components/angular-ui-grid/ui-grid.css"));
+					  "~/bower_components/angular-ui-grid/ui-grid.css",
+                      "~/bower_components/angular-material/angular-material.css"));
 
 			bundles.Add(new ScriptBundle("~/bundles/angular").Include(
 					 "~/Scripts/angular.js",
@@ -31,6 +32,8 @@ namespace QMFinVioData
 					 "~/Scripts/angular-animate.js",
                      "~/Scripts/angular-route.js",
                      "~/bower_components/angular-ui-grid/ui-grid.js",
+                     "~/bower_components/angular-material/angular-material.js",
+                     "~/bower_components/angular-aria/angular-aria.js",
                      "~/UI/mainApp.js",
                      "~/UI/services/searchComplains.js",
                      "~/UI/controllers/uiSearchController.js"

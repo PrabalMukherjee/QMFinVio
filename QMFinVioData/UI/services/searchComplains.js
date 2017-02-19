@@ -23,10 +23,18 @@
             });
         };
 
+        var getAllCompanies = function () {
+            return $http.get('/api/search/companies').then(function (response) {
+                return response.data;
+            });
+        };
+
+        
         return {
             filterStub: filterStub,
             resGridColDefs : resGridColDefs,
-            filterComplains: searchComplains
+            filterComplains: searchComplains,
+            Companies: getAllCompanies
         };
     };
 

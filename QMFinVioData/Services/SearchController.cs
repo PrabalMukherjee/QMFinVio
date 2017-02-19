@@ -31,7 +31,7 @@ namespace QMFinVioData.Services
 				CompanyResponse = c.CompanyReponseToConsumer,
 				DateReceived = c.DateReceived,
 				Narrative = c.ComplainNarrative
-			}).OrderBy(c => c.Product).ThenBy(c => c.SubProduct).ThenByDescending(c => c.DateReceived).ToListAsync();
+			}).OrderBy(c => c.Product).ThenBy(c => c.SubProduct).ThenByDescending(c => c.DateReceived).ToListAsync().ConfigureAwait(false);
 
 			return complains;
 		}
@@ -51,5 +51,21 @@ namespace QMFinVioData.Services
 
 			return complains;
 		}
+
+        [HttpGet]
+        public async Task<IHttpActionResult> Companies()
+        {
+            try
+            {
+                var companies = await dbContext.AllComplains.Distinct<string>("Company", "{}").ToListAsync().ConfigureAwait(false);
+                var result = companies.Select(c => new { value = c.ToLower() , display = c });
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
     }
 }
