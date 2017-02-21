@@ -36,7 +36,8 @@ namespace QMFinVioData
                      "~/bower_components/angular-aria/angular-aria.js",
                      "~/UI/mainApp.js",
                      "~/UI/services/searchComplains.js",
-                     "~/UI/controllers/uiSearchController.js"
+                     "~/UI/controllers/uiSearchController.js",
+                     "~/UI/services/fvConstants.js"
                     ));
 		}
 	}

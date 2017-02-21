@@ -1,6 +1,9 @@
 ﻿(function () {
 
-    var searchService = function ($http) {
+    var app = angular.module('finvol');
+    app.factory("searchfinvol", searchService);
+
+    function searchService(http, fvConst) {
 
         var filterStub = {
             Company: '',
@@ -18,13 +21,13 @@
         ];
 
         var searchComplains = function (filter) {
-            return $http.post('/api/Search/GetVio', filter).then(function (response) {
+            return http.post(fvConst.FV_GETVIO_SVC, filter).then(function (response) {
                 return response.data;
             });
         };
 
         var getAllCompanies = function () {
-            return $http.get('/api/search/companies').then(function (response) {
+            return http.get(fvConst.FV_GETCOMPANIES_SVC).then(function (response) {
                 return response.data;
             });
         };
@@ -38,7 +41,5 @@
         };
     };
 
-    var app = angular.module('finvol');
-    app.factory("searchfinvol", searchService);
-
+    searchService.$inject = ['$http', 'fvConstants'];
 }());

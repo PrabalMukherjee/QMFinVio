@@ -1,5 +1,12 @@
 ﻿(function () {
-    var uiSearchController = function (scope, log ,uiGridConstants, searchfinvol) {
+
+    var app = angular.module('finvol');
+    var ctrl = app.controller("uiSearchController", ["$log", "uiGridConstants", "searchfinvol","fvConstants", uiSearchController]);
+
+    function uiSearchController(log ,uiGridConstants, searchfinvol, fvconst) {
+        var scope = this;
+
+        scope.Title = fvconst.APP_TITLE;
 
         scope.filter = searchfinvol.filterStub;
 
@@ -79,7 +86,6 @@
         }
     };
 
-    var app = angular.module('finvol');
-    var ctrl = app.controller("uiSearchController", ["$scope", "$log", "uiGridConstants", "searchfinvol", uiSearchController]);
-   
+    
 }());
+

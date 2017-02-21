@@ -873,6 +873,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="UI\controllers\uiSearchController.js" />
     <Content Include="UI\mainApp.js" />
+    <Content Include="UI\services\fvConstants.js" />
     <Content Include="UI\services\searchComplains.js" />
     <Content Include="UI\spaViews\SearchView.html" />
     <Content Include="Web.config" />

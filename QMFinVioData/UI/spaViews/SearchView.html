@@ -1,5 +1,11 @@
-﻿<div class="container">
-    <h2>Search for violations</h2>
+﻿<style>
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+</style>
+<div class="container">
+    <h2>{{srch.Title}}</h2>
     <div class="row">
         <div class="col-md-4">
             <p></p>
@@ -7,13 +13,13 @@
                 <span class="input-group-addon" id="basic-addon1">Company</span>
                 <!--<input type="text" class="form-control" placeholder="enter company" aria-describedby="basic-addon1" ng-model="filter.Company" />-->
 
-                <md-autocomplete ng-disabled="ac.isDisabled" ng-model="filter.Company"
-                                 md-no-cache="ac.noCache"
-                                 md-selected-item="ac.selectedItem"
-                                 md-search-text-change="ac.searchTextChange(ac.searchText)"
-                                 md-search-text="ac.searchText"
-                                 md-selected-item-change="ac.selectedItemChange(item)"
-                                 md-items="item in ac.querySearch(ac.searchText)"
+                <md-autocomplete ng-disabled="srch.ac.isDisabled" ng-model="srch.filter.Company"
+                                 md-no-cache="srch.ac.noCache"
+                                 md-selected-item="srch.ac.selectedItem"
+                                 md-search-text-change="srch.ac.searchTextChange(srch.ac.searchText)"
+                                 md-search-text="srch.ac.searchText"
+                                 md-selected-item-change="srch.ac.selectedItemChange(item)"
+                                 md-items="item in srch.ac.querySearch(srch.ac.searchText)"
                                  md-item-text="item.display"
                                  md-min-length="0"
                                  placeholder="Type company name to search?">
@@ -21,7 +27,7 @@
                         <span md-highlight-text="ac.searchText" md-highlight-flags="^i">{{item.display}}</span>
                     </md-item-template>
                     <md-not-found>
-                        No company matching "{{ac.searchText}}" were found.                        
+                        No company matching "{{srch.ac.searchText}}" were found.                        
                     </md-not-found>
                 </md-autocomplete>
 
@@ -29,21 +35,21 @@
             <p></p>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">Product</span>
-                <input type="text" class="form-control" placeholder="enter product" aria-describedby="basic-addon1" ng-model="filter.Product" />
+                <input type="text" class="form-control" placeholder="enter product" aria-describedby="basic-addon1" ng-model="srch.filter.Product" />
             </div>
             <p></p>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">Sub Product</span>
-                <input type="text" class="form-control" placeholder="enter sub product" aria-describedby="basic-addon1" ng-model="filter.SubProduct" />
+                <input type="text" class="form-control" placeholder="enter sub product" aria-describedby="basic-addon1" ng-model="srch.filter.SubProduct" />
             </div>
             <p></p>
-            <button type="button" class="btn btn-default" ng-click="search(filter)">
+            <button type="button" class="btn btn-default" ng-click="srch.search(srch.filter)">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
             </button>
         </div>
         <div class="col-md-8">
             <p></p>
-            <div id="grid1" ui-grid="gridViolations" class="grid"></div>
+            <div id="grid1" ui-grid="srch.gridViolations" class="grid"></div>
         </div>
     </div>
 </div>
